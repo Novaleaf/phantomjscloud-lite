@@ -1,1 +1,10 @@
-{}
+{
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#33131b",
+		"titleBar.activeBackground": "#421925",
+		"titleBar.activeForeground": "#fbf6f7",
+		"editor.background": "#50242f04"
+	},
+	"mochaExplorer.files": "built/**/*.test.js",
+	"mochaExplorer.logpanel": true,
+}
