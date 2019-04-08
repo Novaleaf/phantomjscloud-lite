@@ -1,7 +1,3 @@
-/** color strings for console use.  also used by logger */
-export import Chalk = require("chalk");
-/** remove ansi characters from string.  also used by logger. */
-export import stripAnsi = require("strip-ansi");
 /**
  * escapes strings for html presentation.
  * firstly decodeUriComponent's the string, then html escapes it

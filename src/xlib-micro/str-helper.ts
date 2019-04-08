@@ -3,11 +3,11 @@
 
 import * as _ from "lodash";
 
-/** color strings for console use.  also used by logger */
-export import Chalk = require( "chalk" );
+// /** color strings for console use.  also used by logger */
+// export import Chalk = require( "chalk" );
 
-/** remove ansi characters from string.  also used by logger. */
-export import stripAnsi = require( "strip-ansi" );
+// /** remove ansi characters from string.  also used by logger. */
+// export import stripAnsi = require( "strip-ansi" );
 
 
 /**

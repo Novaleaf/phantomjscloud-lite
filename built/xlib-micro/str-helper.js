@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const _ = tslib_1.__importStar(require("lodash"));
-/** color strings for console use.  also used by logger */
-exports.Chalk = require("chalk");
-/** remove ansi characters from string.  also used by logger. */
-exports.stripAnsi = require("strip-ansi");
+// /** color strings for console use.  also used by logger */
+// export import Chalk = require( "chalk" );
+// /** remove ansi characters from string.  also used by logger. */
+// export import stripAnsi = require( "strip-ansi" );
 /**
  * escapes strings for html presentation.
  * firstly decodeUriComponent's the string, then html escapes it
