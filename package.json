@@ -1,6 +1,6 @@
 {
   "name": "phantomjscloud-lite",
-  "version": "3.5.7",
+  "version": "3.5.8",
   "description": "Official PhantomJs Cloud Client API Library for Browsers",
   "keywords": [
     "Chrome",
