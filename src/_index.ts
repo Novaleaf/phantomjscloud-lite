@@ -5,7 +5,7 @@ import log = require( "./xlib-micro/log-helper" );
 log.logLevel = log.LOGLEVEL.WARN;
 import axios = require( "axios" );
 import promise = require( "./xlib-micro/promise" );
-import bb = promise.bluebird;
+import bb = require("bluebird");
 
 //log.overrideLogLevel( "WARN" );
 

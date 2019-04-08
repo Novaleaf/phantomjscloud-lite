@@ -5,7 +5,7 @@ import axios = require( "axios" );
 import luxon = require( "luxon" );
 import _ = require( "lodash" );
 import promise = require( "./promise" );
-import bb = promise.bluebird;
+import bb = require( "bluebird" );
 import ex = require( "./exception" );
 import numHelper = require( "./num-helper" );
 

@@ -6,7 +6,7 @@ const net = require("./xlib-micro/net");
 const log = require("./xlib-micro/log-helper");
 log.logLevel = log.LOGLEVEL.WARN;
 const promise = require("./xlib-micro/promise");
-var bb = promise.bluebird;
+const bb = require("bluebird");
 //log.overrideLogLevel( "WARN" );
 /** the definitions for types used by phantomjscloud.   see https://phantomjscloud.com/docs/http-api/ for more details */
 exports.ioDatatypes = require("./io-data-types");

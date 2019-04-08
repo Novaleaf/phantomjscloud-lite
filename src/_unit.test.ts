@@ -1,6 +1,7 @@
 
 // tslint:disable: no-invalid-this
 
+
 declare var process: any;
 
 const apiKey: string = process.env[ "phantomjscloud_apikey" ];
@@ -20,7 +21,7 @@ import reflection = require( "./xlib-micro/reflection" );
 import promise = require( "./xlib-micro/promise" );
 import axios = require( "axios" );
 import stringHelper = require( "./xlib-micro/str-helper" );
-
+import bb = require( "bluebird" );
 
 
 const __verifyResponseStatus_defaultOptions = { contentStatusCode: 200, userResponseStatusCode: 200, backend: "chrome", doneDetail: "normal", contentType: "" };
@@ -28,7 +29,7 @@ const __verifyResponseStatus_defaultOptions = { contentStatusCode: 200, userResp
 function verifyResponseStatus( userResponse: ioDatatypes.IUserResponse, options: Partial<typeof __verifyResponseStatus_defaultOptions> = __verifyResponseStatus_defaultOptions ) {
 
 	options = _.defaultsDeep( options, __verifyResponseStatus_defaultOptions );
-	const responseSummary = stringHelper.summarize( JSON.stringify( userResponse ),10000 );// xlib.serialization.jsonX.inspectParse( userResponse );
+	const responseSummary = stringHelper.summarize( JSON.stringify( userResponse ), 10000 );// xlib.serialization.jsonX.inspectParse( userResponse );
 
 	log.throwCheck( userResponse != null, "response null", { options, userResponse } );
 	log.throwCheck( userResponse.statusCode === options.userResponseStatusCode, "responseStatusCode", userResponse.statusCode, { options, responseSummary } );
@@ -69,7 +70,7 @@ function it2( testFcn: () => Promise<any> ) {
 	const testName = reflection.getTypeName( testFcn );
 	return it( testName, async function () {
 		const timeoutMs = this.timeout();
-		return promise.bluebird.resolve( testFcn.apply( this ) ).timeout( timeoutMs, new promise.bluebird.TimeoutError( `operation timed out.  Max of ${ timeoutMs }ms exceeded` ) );
+		return bb.resolve( testFcn.apply( this ) ).timeout( timeoutMs, new bb.TimeoutError( `operation timed out.  Max of ${ timeoutMs }ms exceeded` ) );
 	} );
 }
 

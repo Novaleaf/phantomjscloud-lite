@@ -1,7 +1,7 @@
 /** https://github.com/petkaantonov/bluebird  Bluebird is a fully featured promise library with focus on innovative features and performance
  * global.Promise is aliased to this.
  */
-export import bluebird = require("bluebird");
+import bluebird = require("bluebird");
 /** helper to avoid throws in your code (so in dev time, avoid triggering "break on all exceptions").
     * **VERY** useful in codepaths that reject during normal operation, but not very useful otherwise.
     *

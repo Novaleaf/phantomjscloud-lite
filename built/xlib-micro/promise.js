@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** https://github.com/petkaantonov/bluebird  Bluebird is a fully featured promise library with focus on innovative features and performance
  * global.Promise is aliased to this.
  */
-exports.bluebird = require("bluebird");
+const bluebird = require("bluebird");
 /** helper to avoid throws in your code (so in dev time, avoid triggering "break on all exceptions").
     * **VERY** useful in codepaths that reject during normal operation, but not very useful otherwise.
     *
@@ -20,7 +20,7 @@ if(toInspect.isFulfilled()){
 }
  */
 function awaitInspect(promise) {
-    let toInspect = exports.bluebird.resolve(promise);
+    let toInspect = bluebird.resolve(promise);
     let results = { toInspect };
     // let tryToReturn = {
     // 	the
@@ -42,7 +42,7 @@ function CreateExposedPromise(...args) {
     const callback = args[1];
     let fulfiller;
     let rejector;
-    let toReturn = new exports.bluebird(function (fulfill, reject) {
+    let toReturn = new bluebird(function (fulfill, reject) {
         fulfiller = fulfill;
         rejector = reject;
         if (callback != null) {

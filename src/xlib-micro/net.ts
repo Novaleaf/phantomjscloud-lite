@@ -1,7 +1,7 @@
 import _ = require( "lodash" );
 import axios = require( "axios" );
 import promise = require( "./promise" );
-import bb = promise.bluebird;
+import bb = require( "bluebird" );
 import log = require( "./log-helper" );
 
 import { Autoscaler, IAutoscalerOptions } from "./threading";
@@ -223,7 +223,7 @@ export class RemoteHttpEndpoint<TSubmitPayload, TRecievePayload>{
 
 
 					}
-					return new promise.bluebird<axios.AxiosResponse<TRecievePayload>>( ( resolve, reject ) => {
+					return new bb<axios.AxiosResponse<TRecievePayload>>( ( resolve, reject ) => {
 						//wrap axios in a REAL promise call, as it's hacky promises really sucks and breaks Bluebird
 						axiosRequestPromise.then( ( axiosResponse ) => { resolve( axiosResponse ); } )
 							.catch( ( axiosErr ) => {

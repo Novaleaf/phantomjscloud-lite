@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _ = require("lodash");
 const axios = require("axios");
 const promise = require("./promise");
-var bb = promise.bluebird;
+const bb = require("bluebird");
 const log = require("./log-helper");
 const threading_1 = require("./threading");
 /**
@@ -126,7 +126,7 @@ class RemoteHttpEndpoint {
                                 throw log.error(`EzEndpoint._doRequest() unknown protocol`, { protocol });
                             }
                     }
-                    return new promise.bluebird((resolve, reject) => {
+                    return new bb((resolve, reject) => {
                         //wrap axios in a REAL promise call, as it's hacky promises really sucks and breaks Bluebird
                         axiosRequestPromise.then((axiosResponse) => { resolve(axiosResponse); })
                             .catch((axiosErr) => {

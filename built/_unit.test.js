@@ -14,8 +14,8 @@ const log = require("./xlib-micro/log-helper");
 //log.logLevel = log.LOGLEVEL.DEBUG;
 const _ = require("lodash");
 const reflection = require("./xlib-micro/reflection");
-const promise = require("./xlib-micro/promise");
 const stringHelper = require("./xlib-micro/str-helper");
+const bb = require("bluebird");
 const __verifyResponseStatus_defaultOptions = { contentStatusCode: 200, userResponseStatusCode: 200, backend: "chrome", doneDetail: "normal", contentType: "" };
 /** does basic verification of the userResponse common among most tests */
 function verifyResponseStatus(userResponse, options = __verifyResponseStatus_defaultOptions) {
@@ -58,7 +58,7 @@ function it2(testFcn) {
     const testName = reflection.getTypeName(testFcn);
     return it(testName, async function () {
         const timeoutMs = this.timeout();
-        return promise.bluebird.resolve(testFcn.apply(this)).timeout(timeoutMs, new promise.bluebird.TimeoutError(`operation timed out.  Max of ${timeoutMs}ms exceeded`));
+        return bb.resolve(testFcn.apply(this)).timeout(timeoutMs, new bb.TimeoutError(`operation timed out.  Max of ${timeoutMs}ms exceeded`));
     });
 }
 describe("phantomjscloud-unit-tests", function unitTests() {

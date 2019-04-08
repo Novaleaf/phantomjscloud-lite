@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const luxon = require("luxon");
 const _ = require("lodash");
 const promise = require("./promise");
-var bb = promise.bluebird;
+const bb = require("bluebird");
 const ex = require("./exception");
 const numHelper = require("./num-helper");
 const log = require("./log-helper");
